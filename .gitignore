@@ -1,0 +1,8 @@
+# Project exclude paths
+/CommonClasses/target/
+/Server/target/
+/Client/target/
+/executable/
+/.idea/
+*.iml
+*.MF

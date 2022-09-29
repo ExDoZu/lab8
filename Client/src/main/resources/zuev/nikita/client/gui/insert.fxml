@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zuev.nikita.client.gui.Insert">
+   <children>
+      <ToolBar prefHeight="37.0" prefWidth="601.0">
+        <items>
+          <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" onAction="#saveHandle" style="-fx-background-radius: 10;" text="save" />
+        </items>
+      </ToolBar>
+      <Text fx:id="keyText" layoutX="-1.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="key" textAlignment="RIGHT" wrappingWidth="150.0" />
+      <Text fx:id="nameText" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="name" textAlignment="RIGHT" wrappingWidth="150.0" />
+      <Text fx:id="typeText" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type" textAlignment="RIGHT" wrappingWidth="150.0" />
+      <Text fx:id="addressText" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="address" textAlignment="RIGHT" wrappingWidth="150.0" />
+      <Text fx:id="coordText" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="coord" textAlignment="RIGHT" wrappingWidth="150.0" />
+      <Text layoutX="190.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X" />
+      <Text layoutX="365.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Y" />
+      <TextField fx:id="keyField" layoutX="185.0" layoutY="92.0" prefHeight="26.0" prefWidth="321.0" />
+      <TextField fx:id="nameField" layoutX="185.0" layoutY="132.0" prefHeight="26.0" prefWidth="321.0" />
+      <TextField fx:id="addressField" layoutX="185.0" layoutY="205.0" prefHeight="26.0" prefWidth="321.0" />
+      <TextField layoutX="218.0" layoutY="241.0" prefHeight="26.0" prefWidth="128.0" fx:id="xField" />
+      <TextField fx:id="yField" layoutX="384.0" layoutY="242.0" prefHeight="26.0" prefWidth="120.0" />
+      <ComboBox fx:id="typeChoice" layoutX="188.0" layoutY="172.0" prefWidth="150.0" />
+      <Text fx:id="annualTurnoverText" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="annueal turnover" textAlignment="RIGHT" wrappingWidth="150.0" />
+      <TextField fx:id="annualTurnoverField" layoutX="190.0" layoutY="280.0" prefHeight="26.0" prefWidth="321.0" />
+   </children>
+</AnchorPane>
