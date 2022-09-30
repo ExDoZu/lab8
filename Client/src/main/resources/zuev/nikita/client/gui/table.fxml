@@ -42,6 +42,9 @@
                         <MenuItem fx:id="removeLowerItem" mnemonicParsing="false" onAction="#removeLowerHandle" text="remove lower" />
                         <MenuItem fx:id="removeGreaterKeyItem" mnemonicParsing="false" onAction="#removeGreaterKeyHandle" text="remove greater key" />
                         <MenuItem fx:id="filterGTPA" mnemonicParsing="false" onAction="#filterGreaterThanPostalAddress" text="filter greater than postal address" />
+                        <MenuItem fx:id="sortAsc" mnemonicParsing="false" onAction="#sortAscending"  />
+                        <MenuItem fx:id="sortDesc" mnemonicParsing="false" onAction="#sortDescending"  />
+
 
                     </items>
                 </ContextMenu>

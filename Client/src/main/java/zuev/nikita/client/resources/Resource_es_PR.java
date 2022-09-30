@@ -42,6 +42,9 @@ public class Resource_es_PR extends ListResourceBundle {
             {"removeLower", "Quitar elemento menos que dado"},
             {"removeGreaterKey", "Eliminar elementos con una clave más grande"},
             {"filterGTPA", "Filtrar por direcciones mayores a las dadas"},
+            {"sortAsc", "Sort asc es"},
+            {"sortDesc", "Sort desc es"}
+
     };
     @Override
     protected Object[][] getContents() {

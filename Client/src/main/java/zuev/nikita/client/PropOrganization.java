@@ -3,6 +3,8 @@ package zuev.nikita.client;
 
 import javafx.beans.property.*;
 import zuev.nikita.structure.Address;
+import zuev.nikita.structure.Coordinates;
+import zuev.nikita.structure.Organization;
 import zuev.nikita.structure.OrganizationType;
 
 import java.text.DateFormat;
@@ -10,7 +12,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class PropOrganization {
+public class PropOrganization implements Comparable<PropOrganization> {
     private ResourceBundle resourceBundle;
     private StringProperty key;
     private IntegerProperty id;
@@ -190,5 +192,23 @@ public class PropOrganization {
         if (creationDateAsDate.getTime()!=that.creationDateAsDate.getTime()) return false;
         if (organizationTypeAsEnum!=that.organizationTypeAsEnum) return false;
         return getPostalAddress().equals(that.getPostalAddress());
+    }
+
+    @Override
+    public int compareTo(PropOrganization o) {
+        int compare = getName().compareTo(o.getName());
+        if (compare == 0) {
+            compare = new Coordinates(getX(), getY()).compareTo(new Coordinates(o.getX(), o.getY()));
+            if (compare == 0) {
+                compare = Double.compare(getAnnualTurnover(), o.getAnnualTurnover());
+                if (compare == 0) {
+                    compare = getPostalAddress().compareTo(o.getPostalAddress());
+                    if (compare == 0) {
+                        compare = getOrganizationTypeAsEnum().compareTo(o.getOrganizationTypeAsEnum());
+                    }
+                }
+            }
+        }
+        return compare;
     }
 }

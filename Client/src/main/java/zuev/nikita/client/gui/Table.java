@@ -28,6 +28,7 @@ import zuev.nikita.structure.Organization;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -49,6 +50,9 @@ public class Table implements Initializable {
     private MenuItem removeGreaterKeyItem;
     @FXML
     private MenuItem filterGTPA;
+
+    @FXML private MenuItem sortAsc;
+    @FXML private MenuItem sortDesc;
     @FXML
     private TableColumn<PropOrganization, String> key;
     @FXML
@@ -154,6 +158,8 @@ public class Table implements Initializable {
         removeLowerItem.setText(resourceBundle.getString("removeLower"));
         removeGreaterKeyItem.setText(resourceBundle.getString("removeGreaterKey"));
         filterGTPA.setText(resourceBundle.getString("filterGTPA"));
+        sortAsc.setText(resourceBundle.getString("sortAsc"));
+        sortDesc.setText(resourceBundle.getString("sortDesc"));;
 
     }
 
@@ -384,5 +390,16 @@ public class Table implements Initializable {
         organizations.clear();
         organizationsCopy.stream().filter(e -> e.getPostalAddress().compareTo(filter) > 0).forEach(organizations::add);
 
+    }
+
+    public void sortAscending(){
+        ObservableList<PropOrganization> organizationsCopy = FXCollections.observableArrayList(organizations);
+        organizations.clear();
+        organizationsCopy.stream().sorted().forEach(organizations::add);
+    }
+    public void sortDescending(){
+        ObservableList<PropOrganization> organizationsCopy = FXCollections.observableArrayList(organizations);
+        organizations.clear();
+        organizationsCopy.stream().sorted(Comparator.reverseOrder()).forEach(organizations::add);
     }
 }

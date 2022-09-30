@@ -41,7 +41,9 @@ public class Resource_ru extends ListResourceBundle {
             {"clear", "Очистить"},
             {"removeLower", "Удалить элемент меньше данного"},
             {"removeGreaterKey", "Удалить элементы с бОльшим ключом"},
-            {"filterGTPA", "Отфильтровать по адресам больше данного"}
+            {"filterGTPA", "Отфильтровать по адресам больше данного"},
+            {"sortAsc", "Отсортировать по возрастанию"},
+            {"sortDesc", "Отсортировать по убыванию"}
 
 
 
