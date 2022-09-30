@@ -43,7 +43,8 @@ public class Resource_ro extends ListResourceBundle {
             {"removeGreaterKey", "Eliminați elementele cu o cheie mai mare"},
             {"filterGTPA", "Filtrați după adrese mai mari decât cele date"},
             {"sortAsc", "Sort asc ro"},
-            {"sortDesc", "Sort desc ro"}
+            {"sortDesc", "Sort desc ro"},
+            {"emptyFields", "Fields are empty ro"}
     };
     @Override
     protected Object[][] getContents() {

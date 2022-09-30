@@ -19,9 +19,6 @@ public class SocketIO {
         connection = newConnection;
     };
 
-//    public SocketIO(Connection connection) throws IOException {
-//        this.connection = connection;
-//    }
 
     static public void write(String[] fullCommand, Organization organization, AuthorizationData authorizationData, Hashtable<String, Organization> collection) throws IOException {
         ClientRequest clientRequest = new ClientRequest(fullCommand, organization, authorizationData, collection);

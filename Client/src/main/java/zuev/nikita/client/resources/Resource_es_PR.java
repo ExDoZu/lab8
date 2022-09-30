@@ -43,7 +43,8 @@ public class Resource_es_PR extends ListResourceBundle {
             {"removeGreaterKey", "Eliminar elementos con una clave más grande"},
             {"filterGTPA", "Filtrar por direcciones mayores a las dadas"},
             {"sortAsc", "Sort asc es"},
-            {"sortDesc", "Sort desc es"}
+            {"sortDesc", "Sort desc es"},
+            {"emptyFields", "Fields are empty es"}
 
     };
     @Override

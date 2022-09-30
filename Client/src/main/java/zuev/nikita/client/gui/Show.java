@@ -13,6 +13,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -52,24 +53,40 @@ public class Show implements Initializable {
             double x = event.getX();
             double y = event.getY();
 
-            for(PropOrganization org : oldOrgs){
-                double orgX = org.getX()*(canvas.getWidth()-100) / maxX;
-                double orgY = org.getY()*(canvas.getHeight()-100) / maxY;
+            for(int i = oldOrgs.size()-1; i>=0; i--){
+                double orgX = oldOrgs.get(i).getX()*(canvas.getWidth()-100) / maxX;
+                double orgY = oldOrgs.get(i).getY()*(canvas.getHeight()-100) / maxY;
                 if(x>=orgX && x<=orgX+80 && y>=orgY && y<=orgY+80){
                     try {
 
-                        Organization organization =new Organization(org.getId(), org.getName(), new Coordinates(org.getX(), org.getY()), org.getCreationDate(), org.getAnnualTurnover(), org.getOrganizationTypeAsEnum(), new Address(org.getPostalAddress()));
-                        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gui/edit.fxml"));
-                        fxmlLoader.setResources(resources);
-                        Scene scene = new Scene(fxmlLoader.load());
-                        organization.setAuthor(org.getAuthor());
-                        fxmlLoader.<Edit>getController().setOrganization(organization);
-                        fxmlLoader.<Edit>getController().setKey(org.getKey());
-                        Stage stage = new Stage();
-                        stage.setResizable(false);
-                        stage.setScene(scene);
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.show();
+
+                        Organization organization =new Organization(oldOrgs.get(i).getId(), oldOrgs.get(i).getName(), new Coordinates(oldOrgs.get(i).getX(), oldOrgs.get(i).getY()), oldOrgs.get(i).getCreationDate(), oldOrgs.get(i).getAnnualTurnover(), oldOrgs.get(i).getOrganizationTypeAsEnum(), new Address(oldOrgs.get(i).getPostalAddress()));
+                        if(Authorization.authorizationData.getLogin().equals(oldOrgs.get(i).getAuthor())){
+                            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gui/edit.fxml"));
+                            fxmlLoader.setResources(resources);
+                            Scene scene = new Scene(fxmlLoader.load());
+                            organization.setAuthor(oldOrgs.get(i).getAuthor());
+                            fxmlLoader.<Edit>getController().setOrganization(organization);
+                            fxmlLoader.<Edit>getController().setKey(oldOrgs.get(i).getKey());
+                            Stage stage = new Stage();
+                            stage.setResizable(false);
+                            stage.setScene(scene);
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.show();
+                        }else{
+                            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gui/info.fxml"));
+                            fxmlLoader.setResources(resources);
+                            Scene scene = new Scene(fxmlLoader.load());
+                            organization.setAuthor(oldOrgs.get(i).getAuthor());
+                            fxmlLoader.<Info>getController().setOrganization(organization);
+                            fxmlLoader.<Info>getController().setKey(oldOrgs.get(i).getKey());
+                            Stage stage = new Stage();
+                            stage.setResizable(false);
+                            stage.setScene(scene);
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.show();
+                        }
+                        break;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -179,27 +196,34 @@ public class Show implements Initializable {
 
         double x = ((double)org.getX()) * coefX;
         double y = org.getY() * coefY;
-        context.clearRect(x, y, 80, 80);
 
+        Paint p;
         context.setFill(colors.get(org.getAuthor()));
         switch (org.getOrganizationTypeAsEnum()) {
             case COMMERCIAL:
+                context.clearRect(sizeDeltaX+x, sizeDeltaY+y, width, width);
                 context.fillRect(sizeDeltaX+x, sizeDeltaY+y, width, width);
                 context.setFill(Color.BLACK);
                 context.setFont(new Font(80*sizeCoef));
                 context.fillText("$", x + 18, y + 67);
                 break;
             case PUBLIC:
-
+                p = context.getFill();
+                context.setFill(Color.WHITE);
+                context.fillOval(sizeDeltaX+x, sizeDeltaY+y, width, height);
+                context.setFill(p);
                 Image imageP = new Image("zuev/nikita/client/gui/images/person.png");
                 context.fillOval(sizeDeltaX+x, sizeDeltaY+y, width, height);
                 context.drawImage(imageP, x+20, y+10, 40*sizeCoef, 60*sizeCoef);
                 break;
             case TRUST:
-
+                p = context.getFill();
+                context.setFill(Color.WHITE);
+                context.fillPolygon(new double[]{x+40*sizeCoef, x + 80*sizeCoef, x}, new double[]{y, y + 60*sizeCoef, y + 60*sizeCoef}, 3);
+                context.setFill(p);
                 Image imageT = new Image("zuev/nikita/client/gui/images/trust.png");
-                context.fillPolygon(new double[]{x, x + 40*sizeCoef, x - 40*sizeCoef}, new double[]{y, y + 60*sizeCoef, y + 60*sizeCoef}, 3);
-                context.drawImage(imageT, x-20, y+20, 40*sizeCoef, 40*sizeCoef);
+                context.fillPolygon(new double[]{x+40*sizeCoef, x + 80*sizeCoef, x}, new double[]{y, y + 60*sizeCoef, y + 60*sizeCoef}, 3);
+                context.drawImage(imageT, x+20, y+20, 40*sizeCoef, 40*sizeCoef);
                 break;
         }
     }

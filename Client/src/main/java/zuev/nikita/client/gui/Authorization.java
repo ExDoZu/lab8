@@ -88,7 +88,7 @@ public class Authorization implements Initializable {
         authorizationData = new AuthorizationData(loginField.getText(), passwordField.getText());
         if ((authorizationData.getLogin().equals("") || authorizationData.getLogin() == null) ||
                 (authorizationData.getPassword().equals("") || authorizationData.getPassword() == null)) {
-            return;
+            infoText.setText(resourceBundle.getString("emptyFields"));
         }
 
         Connection connection = null;
@@ -100,9 +100,14 @@ public class Authorization implements Initializable {
         }
 
         SocketIO.setConnection(connection);
-
-        SocketIO.write(new String[]{signMethod}, null, authorizationData, null);
-        ServerResponse serverResponse = SocketIO.read();
+        ServerResponse serverResponse;
+        try {
+            SocketIO.write(new String[]{signMethod}, null, authorizationData, null);
+            serverResponse = SocketIO.read();
+        }catch (IOException e){
+            infoText.setText(resourceBundle.getString("serverNotAvailable"));
+            return;
+        }
         if (serverResponse.getStatusCode() == ServerResponse.OK) {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("gui/table.fxml"));
             fxmlLoader.setResources(resourceBundle);

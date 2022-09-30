@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="zuev.nikita.client.gui.Info">
+    <children>
+        <Text fx:id="nameText" layoutX="90.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="name" textAlignment="RIGHT" wrappingWidth="150.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fx:id="typeText" layoutX="91.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type" textAlignment="RIGHT" wrappingWidth="150.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fx:id="addressText" layoutX="93.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="address" textAlignment="RIGHT" wrappingWidth="150.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fx:id="coordText" layoutX="91.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="coord" textAlignment="RIGHT" wrappingWidth="150.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="260.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="X:">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+        <Text layoutX="425.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Y:">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+        <Text fx:id="nameField" layoutX="267.0" layoutY="200.0" wrappingWidth="321.0" />
+        <Text fx:id="addressField" layoutX="271.0" layoutY="270.0" wrappingWidth="321.0" />
+        <Text layoutX="288.0" layoutY="310.0" wrappingWidth="128.0" fx:id="xField" />
+        <Text fx:id="yField" layoutX="456.0" layoutY="310.0" wrappingWidth="120.0" />
+        <Text fx:id="typeChoice" layoutX="270.0" layoutY="238.0" wrappingWidth="150.0" />
+        <Text fx:id="annualTurnoverText" layoutX="91.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="annueal turnover" textAlignment="RIGHT" wrappingWidth="150.0">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Text>
+        <Text fx:id="annualTurnoverField" layoutX="275.0" layoutY="350.0" wrappingWidth="321.0" />
+        <Text fx:id="keyText" layoutX="89.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="2.0" style="-fx-font-weight: BOLD;" text="key" textAlignment="RIGHT" wrappingWidth="150.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+        <Text fx:id="idText" layoutX="88.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" textAlignment="RIGHT" wrappingWidth="150.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+        <Text fx:id="authorText" layoutX="89.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="author" textAlignment="RIGHT" wrappingWidth="150.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+        <Text fx:id="creationDateText" layoutX="90.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="creationDate" textAlignment="RIGHT" wrappingWidth="150.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Text>
+        <Text fx:id="keyInfoText" layoutX="267.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="320.0" />
+        <Text fx:id="idInfoText" layoutX="267.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="320.0" />
+        <Text fx:id="authorInfoText" layoutX="267.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="320.0" />
+        <Text fx:id="creationDateInfoText" layoutX="267.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="320.0" />
+    </children>
+
+</AnchorPane>

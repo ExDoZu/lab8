@@ -43,7 +43,8 @@ public class Resource_ru extends ListResourceBundle {
             {"removeGreaterKey", "Удалить элементы с бОльшим ключом"},
             {"filterGTPA", "Отфильтровать по адресам больше данного"},
             {"sortAsc", "Отсортировать по возрастанию"},
-            {"sortDesc", "Отсортировать по убыванию"}
+            {"sortDesc", "Отсортировать по убыванию"},
+            {"emptyFields", "Поля ввода пустые"}
 
 
 

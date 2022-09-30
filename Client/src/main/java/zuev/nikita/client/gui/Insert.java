@@ -116,11 +116,15 @@ public class Insert implements Initializable {
             valid=false;
         }
         try {
-            Long.parseLong(x);
+            if(Long.parseLong(x)>=923){
+                xField.setStyle("-fx-control-inner-background: #ff0000");
+                valid = false;
+            }
         }catch (NumberFormatException e){
             xField.setStyle("-fx-control-inner-background: #ff0000");
             valid = false;
         }
+
         if(y.equals("")) {
             yField.setStyle("-fx-control-inner-background: #ff0000");
             valid=false;

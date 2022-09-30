@@ -191,6 +191,7 @@ public class PropOrganization implements Comparable<PropOrganization> {
         if (!getName().equals(that.getName())) return false;
         if (creationDateAsDate.getTime()!=that.creationDateAsDate.getTime()) return false;
         if (organizationTypeAsEnum!=that.organizationTypeAsEnum) return false;
+        if(!resourceBundle.getLocale().equals(that.resourceBundle.getLocale())) return false;
         return getPostalAddress().equals(that.getPostalAddress());
     }
 
